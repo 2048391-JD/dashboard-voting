@@ -1,0 +1,222 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  display: flex;
+}
+.sidebar {
+  width: 19%;               /* default on big screens */
+  min-height: 100vh;        /* full height of screen instead of fixed 1000px */
+  background-color: rgba(255, 255, 255, 0.712);
+  padding: 15px;
+  box-sizing: border-box;   /* prevents padding from breaking width */
+}
+
+/* For tablets */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 25%;
+  }
+  #voting-name{
+    font-size:large;
+  }
+}
+
+/* For small screens (phones) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;        /* sidebar becomes full width */
+    min-height: auto;   /* let content decide height */
+    position: relative; /* no fixed layout issues */
+  }
+
+  #voting-name{
+    font-size: larger;
+  }
+
+}
+
+
+.title-box {
+  display: flex;
+  width: 120px;
+  padding: 20px;
+}
+
+#voting-name {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.dashboard-box {
+  margin-top: 30%;
+  display: flex;
+  width: 100px;
+  padding: 30px;
+  cursor: pointer;
+}
+
+#dashboard-name {
+  margin-left: 8px;
+}
+
+.voting-box {
+  display: flex;
+  width: 100px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+#voting-name {
+  margin-left: 5px;
+}
+
+#voting-img {
+  margin-top: 5px;
+}
+
+a {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+
+.main-content {
+  background-color: rgba(83, 107, 107, 0.158);
+  width: 2000px;
+}
+
+.card-d {
+  padding: 2em;
+  border-radius: 10px;
+  background-color: #3657aae1;
+  text-align: start;
+  color: rgba(255, 255, 255, 0.904);
+}
+.grid-container {
+  display: grid;
+  margin-top: 10%;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 15px;
+  padding: 20px;
+}
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 column on small screens */
+  }
+}
+
+#candid {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.voting-container {
+  width: 40%;
+  height: 700px;
+  border-radius: 10px;
+  background-color: #5073cac4;
+  display: flex;
+  flex-direction: column; /* stack cards */
+  color: rgba(243, 243, 243, 0.904);
+  padding: 20px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2),
+              0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 25px;
+  overflow-y: auto; /* scroll if too many candidates */
+}
+
+.voting-content {
+  background-color: rgba(138, 151, 151, 0.158);
+  width: 2000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.card {
+  background: rgba(8, 19, 80, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+label {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+input[type="submit"] {
+  background-color: #2e4fa3;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+input[type="submit"]:hover {
+  background-color: #1f3b82;
+  transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+  background-color: #162a5d;
+  transform: translateY(0);
+}
+
+.id_num{
+    margin: 10px;
+}
+
+input[type="text"] {
+  width: 95%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+/* Focus effect */
+input[type="text"]:focus {
+  background-color: #fff;
+  box-shadow: 0 0 5px #2e4fa3;
+  border: 1px solid #2e4fa3;
+}
