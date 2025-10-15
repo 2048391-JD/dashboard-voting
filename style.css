@@ -1,8 +1,8 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* applied globally */
+  box-sizing: border-box; 
 }
 
 body {
@@ -13,17 +13,17 @@ body {
   color: #333;
 }
 
-/* Sidebar */
+
 .sidebar {
   width: 19%;
   min-height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  transition: width 0.3s ease; /* smoother resizing */
+  transition: width 0.3s ease; 
 }
 
-/* Responsive sidebar */
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 25%;
@@ -78,14 +78,13 @@ a {
   color: inherit;
 }
 
-/* Main content */
 .main-content {
-  flex: 1; /* takes remaining space */
+  flex: 1; 
   padding: 20px;
   background-color: rgba(83, 107, 107, 0.08);
 }
 
-/* Cards */
+/* Cards sa dashboard */
 .card-d {
   padding: 2em;
   border-radius: 10px;
@@ -130,7 +129,7 @@ a {
   }
 }
 
-/* Voting section */
+
 .voting-container {
   width: 100%;
   max-width: 500px;
@@ -155,7 +154,7 @@ a {
   flex-direction: column;
 }
 
-/* Inputs */
+
 label {
   font-size: 16px;
   cursor: pointer;
@@ -209,4 +208,107 @@ input[type="text"]:focus {
   background-color: #fff;
   box-shadow: 0 0 5px #2e4fa3;
   border: 1px solid #2e4fa3;
+}
+
+#refresh-btn {
+  background-color: #2a7bb1;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 20px;
+  transition: 0.2s;
+}
+
+#refresh-btn:hover {
+  background-color: #2445a1;
+}
+
+button#submitVoteBtn {
+  background-color: #2e4fa3;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+button#submitVoteBtn:hover {
+  background-color: #1f3b82;
+  transform: translateY(-2px);
+}
+
+button#submitVoteBtn:active {
+  background-color: #162a5d;
+  transform: translateY(0);
+}
+
+
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: bold;
+  animation: blink 1s infinite;
+  text-align: center;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 40px 60px;
+  border-radius: 12px;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content .check {
+  font-size: 60px;
+  color: green;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.modal-content button {
+  background-color: #2e4fa3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-content button:hover {
+  background-color: #1f3b82;
 }

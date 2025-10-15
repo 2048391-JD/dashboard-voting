@@ -1,40 +1,47 @@
-document.getElementById("votin-form").addEventListener("submit", function (e) {
-  e.preventDefault(); // prevent form refresh
-
+document.getElementById("submitVoteBtn").addEventListener("click", function () {
   const idNumber = document
     .querySelector("input[name='id_number']")
     .value.trim();
 
+  const idError = document.getElementById("id-error");
+  const voteError = document.getElementById("vote-error");
+  idError.textContent = "";
+  voteError.textContent = "";
+
+
   if (!idNumber) {
-    alert("Please enter your ID number.");
+    idError.textContent = "⚠ Please enter your ID number.";
     return;
   }
 
-  // Get existing votes from localStorage or empty object
+  // ✅ Check if ID number contains only digits
+  if (!/^\d+$/.test(idNumber)) {
+    idError.textContent = "⚠ ID number must contain numbers only.";
+    return;
+  }
+
   let votes = JSON.parse(localStorage.getItem("votes")) || {};
 
-  // Check if this ID already voted
+  // ✅ Check if this ID already voted
   if (votes[idNumber]) {
-    alert("You can only vote once! ID " + idNumber + " has already voted.");
+    voteError.textContent = "⚠ You can only vote once! This ID has already voted.";
     return;
   }
 
-  // Collect all chosen candidates
+
   const president = document.querySelector("input[name='president']:checked");
-  const vicePresident = document.querySelector(
-    "input[name='vicepresident']:checked"
-  );
+  const vicePresident = document.querySelector("input[name='vicepresident']:checked");
   const treasurer = document.querySelector("input[name='treasurer']:checked");
   const secretary = document.querySelector("input[name='secretary']:checked");
   const pio = document.querySelector("input[name='pio']:checked");
 
+
   if (!president || !vicePresident || !treasurer || !secretary || !pio) {
-    alert("Please complete all positions before submitting.");
+    voteError.textContent = "⚠ Please complete all positions before submitting.";
     return;
   }
 
-  // Store this user's vote
-  // Store this user's vote
+
   votes[idNumber] = {
     president: president.value,
     vicePresident: vicePresident.value,
@@ -43,11 +50,16 @@ document.getElementById("votin-form").addEventListener("submit", function (e) {
     pio: pio.value,
   };
 
-  // Save back to localStorage
   localStorage.setItem("votes", JSON.stringify(votes));
 
-  alert("Vote submitted successfully! Thank you, ID " + idNumber);
+  const modal = document.getElementById("successModal");
+  modal.style.display = "flex";
 
-  // Optional: reset form after vote
+
   document.getElementById("votin-form").reset();
+});
+
+
+document.getElementById("closeModalBtn").addEventListener("click", () => {
+  document.getElementById("successModal").style.display = "none";
 });

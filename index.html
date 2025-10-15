@@ -3,75 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Voting Page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
     <div class="sidebar">
       <div class="title-box">
         <img src="./assets/politician.png" alt="" height="40px" />
-        <h2 id="voting-name">Voting-vote</h2>
+        <h2 id="voting-name">Voting-Dashboard</h2>
       </div>
+
       <a href="dashboard.html">
         <div class="dashboard-box">
           <img src="./assets/dashboard.png" alt="" height="20px" />
           <h3 id="dashboard-name">Dashboard</h3>
         </div>
       </a>
-
-      <div class="voting-box">
-        <img
-          src="./assets/voting-box.png"
-          alt=""
-          height="25px"
-          id="voting-img"
-        />
-        <h3 id="voting-name">Vote</h3>
-      </div>
     </div>
 
-    <div></div>
 
     <main class="voting-content">
       <div class="voting-container">
         <form id="votin-form">
           <div class="id_num">
             <h2>ID Number</h2>
-            <input type="text" name="id_number" placeholder="ID Number">
+            <input type="text" name="id_number" placeholder="ID Number" />
+            <p id="id-error" class="error-text"></p>
           </div>
+
           <div class="card" id="president-card">
             <h2>President</h2>
-            <label><input type="radio" name="president" value="Jun"/> Jun</label><br />
-            <label><input type="radio" name="president" value="John"/> John</label>
+            <label><input type="radio" name="president" value="Jun" /> Jun</label><br />
+            <label><input type="radio" name="president" value="John" /> John</label>
           </div>
 
           <div class="card" id="vicepresident-card">
             <h2>Vice President</h2>
-            <label><input type="radio" name="vicepresident" value="Jun"/> Jun</label><br />
-            <label><input type="radio" name="vicepresident" value="John"/> John</label>
+            <label><input type="radio" name="vicepresident" value="Jun" /> Jun</label><br />
+            <label><input type="radio" name="vicepresident" value="John" /> John</label>
           </div>
 
           <div class="card" id="treasurer-card">
             <h2>Treasurer</h2>
-            <label><input type="radio" name="treasurer" value="Jun"/> Jun</label><br />
-            <label><input type="radio" name="treasurer" value="John"/> John</label>
+            <label><input type="radio" name="treasurer" value="Jun" /> Jun</label><br />
+            <label><input type="radio" name="treasurer" value="John" /> John</label>
           </div>
 
           <div class="card" id="secretary-card">
             <h2>Secretary</h2>
-            <label><input type="radio" name="secretary" value="Jun"/> Jun</label><br />
-            <label><input type="radio" name="secretary" value="John"/> John</label>
+            <label><input type="radio" name="secretary" value="Jun" /> Jun</label><br />
+            <label><input type="radio" name="secretary" value="John" /> John</label>
           </div>
 
           <div class="card" id="pio-card">
-            <h2>Pio</h2>
-            <label><input type="radio" name="pio" value="Jun"/> Jun</label><br />
-            <label><input type="radio" name="pio" value="John"/> John</label>
+            <h2>PIO</h2>
+            <label><input type="radio" name="pio" value="Jun" /> Jun</label><br />
+            <label><input type="radio" name="pio" value="John" /> John</label>
           </div>
-          <input type="submit">
+
+          <p id="vote-error" class="error-text"></p>
+
+          <button type="button" id="submitVoteBtn">Submit Vote</button>
         </form>
       </div>
     </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <span class="check">✅</span>
+        <h2>Vote Submitted Successfully!</h2>
+        <button id="closeModalBtn">OK</button>
+      </div>
+    </div>
 
     <script src="voting.js"></script>
   </body>
